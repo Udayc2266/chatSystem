@@ -1,0 +1,14 @@
+<%- include("./header.ejs") %>
+<% if(success && success.length){ %>
+<div style="display: flex; height: 1.5; justify-content: center;" class="alert alert-success alert-dismissible fade show col-10 offset-1" role="alert">
+    <h4><i style="margin-right: 1rem;" class="fa-solid fa-check"></i><%- success %></h4>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<% } %>
+
+<% if(error && error.length){ %>
+<div style="display: flex; justify-content: center;" class="alert alert-danger alert-dismissible fade show col-10 offset-1" role="alert">
+    <h4><%- error %></h4>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<% } %>

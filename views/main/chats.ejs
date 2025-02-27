@@ -1,0 +1,83 @@
+<%- include("../classic/navBar.ejs") %>
+<br>
+<%- include("../classic/flash.ejs") %>
+
+<div class="dark">
+    <% if(currUser){ %>
+    <nav  class="fixed-bottom navbar best navbar-expand-lg bg-body-tertiary">
+        <div class="col-12 ">
+            <form action="/chats/<%= chats.id%>/reviews" method="post">
+
+                <div class="row g-3">
+                    
+                    <div   class="mt-1 col-md-10">
+                        
+                        <textarea required style="margin-left: 1rem; margin-right: 1rem; font-size: larger; font-weight: 600;"  type="text" placeholder="  Enter your Opinion" name="small[message]" class="form-control" id="inputPassword4"></Textarea>
+                    </div>
+                </div>
+
+
+                <div >
+                    <button style="width: 100px;" class="offset-5 btn mt-1 btn-outline-success" type="submit">Send <i style="margin-left:1rem ;" class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </form>
+        </div>
+    </nav>
+    <% } %>
+    
+    <div style="height: 15rema;" class="card col-10 offset-1  text-bg-dark">
+        <img style="height: 15rem;" src="https://plus.unsplash.com/premium_photo-1682464651356-3c6780eff00c?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cm9ib3QlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww" class="card-img" alt="...">
+        <div class="card-img-overlay">
+            <div class="mt-2 mb-1" style="display: flex; text-transform: capitalize; color: white; justify-content: center; text-decoration: underline;" ><h3><%- chats.title %></h3></div>
+            <div class="mt-2 mb-1" style="display: flex; color: white; justify-content: center;" ><h4><%- chats.aims %> , <%- chats.category %></h4></div>
+            <div class="mt-2 mb-1" style="display: flex; color: white; justify-content: center; text-transform: capitalize;" ><h5>Own By -- <%= chats.owner.name %></h5></div>
+            <div class="mt-2 mb-1" style="display: flex; color: white; justify-content: center; font-size: x-small" ><p> -- <%- chats.date %></p></div>
+            
+            <% if (currUser && currUser._id.equals(chats.owner._id)){ %>
+            
+                <div style="display: flex; justify-content: center; "  class="d-flex flex-wrap " >
+                  <a style="margin-bottom:10px; margin-right:10px; width: 90px; height: 35px;" class=" col-4 btn btn-outline-light"  type="button" href="/chats/<%= chats.id %>/edit"> Edit <i class="fa-regular fa-pen-to-square"></i> </a>
+                  
+                  <form method="POST" action="/chats/<%=chats._id%>?_method=DELETE" onsubmit="return confirm('Are you sure you want to delete - <%= chats.title %> - listing?');">
+                    <button style=" margin-bottom:10px;margin-right:10px; width: 90px; height: 35px;" class=" col-4 btn btn-outline-light" type="submit">Delete <i class="fa-regular fa-trash-can"></i> </button>
+                  
+                  </form>
+        
+                </div>
+             
+            <% } %>
+        </div>
+      
+      
+        
+    </div>
+     <br><br>
+      <br>
+    <div id="best" class="new" style="border: 2px solid black; margin:1rem; border-radius: 20px; background-color:#c2e2e6 ;" >
+        <h2 style="padding: 5px 0 0 0;" class="offset-4"><i style="margin-right: 1rem;" class="fa-brands fa-rocketchat"></i>All Chats</h2>
+        
+        <% for (review of chats.smallchats){%>
+            <div style="margin: 1rem; border-radius: 10px; background-color: #ffffff;" class="card ">
+                <div class="card-header">
+                    <h2 style="text-transform: uppercase;"> <i class="fa-solid fa-user-tie"></i> <%=review.author.name%></h2>
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0">
+                    <h3 class="mb-4" style="text-transform: capitalize;"><i><%=review.message%></i></h3>
+                    <footer style="font-size: small;" class="blockquote-footer"><%= review.date %><cite title="Source Title"></cite></footer>
+                  </blockquote>
+                </div>
+                <div>
+                    <form method="POST" action="/chats/<%=chats._id%>/reviews/<%=review._id%>?_method=DELETE" >
+                        <button style="width: 100px;" class="mb-3 offset-8 btn btn-outline-danger" type="submit">Delete   <i style="margin-left: 0.5rem;" class="fa-regular fa-trash-can"></i></button>
+                    </form>
+                </div>
+            </div>
+        <%}%>
+        
+    </div>
+    <br><br><br><br><br><br><br><br>
+</div>
+
+
+<%- include("../classic/footer.ejs") %>

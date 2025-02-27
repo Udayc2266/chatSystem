@@ -1,0 +1,37 @@
+<%- include("../classic/navBar.ejs") %>
+<%- include("../classic/flash.ejs") %>
+<div>
+    
+  <div class="best" style="margin: 2%; width: 94%;">
+    <div  class="col-12 mt-3  card text-bg-dark"  >
+        <img style="height: 25rem; width: 100%;  opacity: 0.6;" src="https://plus.unsplash.com/premium_photo-1682464651356-3c6780eff00c?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cm9ib3QlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww" class="card-img" alt="">
+        <div class="card-img-overlay">
+            <form  method="post" action="/login"  >
+                <h3  style="display: flex; justify-content: center;"><i style="margin-right:1rem ;" class="fa-solid fa-pen-to-square"></i>Login</h3>
+                
+                <div class="mb-3 ">
+                  <label for="username" style="font-size: x-large; font-weight: 600;"  class="form-label"><i style="margin-right:1rem ;" class="fa-solid fa-star"></i>User Id</label>
+                  <textarea placeholder="Enter User Id" style="font-size: x-large; height: 2rem; font-weight: 500;" name="username" type="text" class="form-control" id="username" ></textarea>
+                  <div id="username" class="form-text">Enter User Id</div>
+                </div>
+                <div class="mb-3 ">
+                    <label for="passward" style="font-size: x-large; font-weight: 600;"  class="form-label"><i style="margin-right:1rem ;" class="fa-solid fa-star"></i>Passward</label>
+                    <input placeholder="Enter Password " style="font-size: x-large; font-weight: 500;" name="password" type="password" class="form-control" id="passward" required>
+                    
+                </div>
+                <br>
+                <div class="col-10 text-center">
+                    <button style="font-size: large;  font-weight: 500; width: 100px; color: black;" type="submit" class="btn btn-light col-1 "  >Submit</button>
+                    <i style="margin-left: 1rem; margin-right: 1rem; font-size: x-large;" class="fa-solid fa-arrows-rotate"></i>
+                    <a style="width: 100px; color: black; font-size: large;  font-weight: 500;" href="/signup" type="button" class="btn btn-light col-1 "  >Signup</a>
+                
+                </div>
+
+            </form>
+        </div>
+      </div>
+</div>
+    
+
+</div>
+<%- include("../classic/footer.ejs") %>

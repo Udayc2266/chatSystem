@@ -1,0 +1,23 @@
+<%- include("../classic/navBar.ejs") %>
+<div class="dark">
+    <div  class="best">
+        <br><br>
+        
+        <div style="border: none; " class="card text-bg-dark col-6 offset-3 ">
+            
+            <img  src="https://thumbs.dreamstime.com/b/data-scientist-data-analytics-manager-database-developer-administrator-working-big-data-job-database-developers-careers-big-132651908.jpg" class="card-img" alt="...">
+            <div class="card-img-overlay">
+                
+            </div>
+        </div>
+        <div style="height: 10rem; margin-top: 0.5rem; display: flex; justify-content: center; text-align: center;" class="alert alert-danger d-flex align-items-center col-8 offset-2" role="alert">
+            <div>
+            <h4><i style="margin-right: 1rem;" class="fa-solid fa-triangle-exclamation"> Error : </i><%= status %></h4>
+            <h5> <%=message%></h5>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<%- include("../classic/footer.ejs") %>
