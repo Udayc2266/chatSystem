@@ -11,11 +11,11 @@ const chatlisting = new Schema({
         required: true
     },
 
-    // author: {
-    //     type: String,
-    //      ref: "User",
-    //     required: true
-    //  },
+    author: {
+        type: String,
+         ref: "User",
+        required: true
+     },
    
     
     date: {

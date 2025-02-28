@@ -17,6 +17,7 @@ const multer  = require('multer');
 const upload = multer({ dest: 'uploads/' });
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
+const isLogin = require("./route/middle.js")
 
 
 app.use(express.static(path.join(__dirname,"/public")));
@@ -92,7 +93,16 @@ app.use((req, res , next) =>{
 })
 
 
-
+app.get("/chats/new" , (req, res , next)=>{
+    if(!req.isAuthenticated()){
+        req.session.redirectUrl = req.originalUrl;
+        req.flash("error","You Have To Login First !");
+        res.redirect("/login")
+    }
+    res.render("main/newChats.ejs")
+    }
+    
+)
 app.use("/chats" ,chatsRouter);
 app.use("/chats",smallChatsRouter);
 app.use("",userRouter)
