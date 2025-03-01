@@ -14,13 +14,13 @@ const upload = multer({storage })
 router
     .route("")
     .get( wrapAsync(chatControler.allCard))
-    .post( isLogin,  upload.single('card[image]'), wrapAsync(chatControler.postNewCard));
+    .post( isLogin,  upload.single("avatar"), wrapAsync(chatControler.postNewCard));
 
 router
     .route("/:id")
     .get( isLogin, wrapAsync(chatControler.card))
     .delete( isLogin, wrapAsync(chatControler.deleteCard))
-    .put( isLogin, wrapAsync(chatControler.postEditCard));
+    .put( isLogin, upload.single("avatar") ,wrapAsync(chatControler.postEditCard));
  
 
 router.get("/new",

@@ -46,32 +46,32 @@ module.exports.deleteCard = async(req,res)=>{
         
     }
     await Primary.findByIdAndDelete(id);
-    
-
     const chats = await Primary.findById(id).populate("secondary");
-
-
     req.flash("success","Successfully Deleted !")
-
 
     res.redirect("/chats");
 }
 
 module.exports.editCard =  async(req,res)=>{
     const {id} = req.params;
+
     let newChat = await Primary.findById(id);
     if(!newChat.user._id.equals(res.locals.currUser._id)){
         req.flash("error" ,"You Don't Have Permission !")
         return res.redirect(`/chats/${id}`)
     }
+    let originurl = newChat.image.url 
+    originurl = originurl.replace("/upload","/upload/h_350,w_250")
     const chat = await Primary.findById(id);
-    res.render("main/edit.ejs",{chat});
+    res.render("main/edit.ejs",{chat , originurl});
 }
 
 module.exports.postEditCard = async(req,res)=>{
     const {id} = req.params;
+    
     const {title , image , aims , category } =req.body.chat;
     let newChat = await Primary.findById(id);
+
     if(!newChat.user._id.equals(res.locals.currUser._id)){
         req.flash("error" ,"You Don't Have Permission !")
         return res.redirect(`/chats/${id}`)
@@ -81,6 +81,12 @@ module.exports.postEditCard = async(req,res)=>{
         title , image , aims , category 
         
     });
+    if(typeof req.file !== "undefined"){
+        let url = req.file.path;
+        let filename = req.file.filename;
+        newChat.image = {url , filename};
+        await newChat.save();
+    }
     req.flash("success","Successfully Edited !")
     res.redirect("/chats")
 }

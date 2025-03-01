@@ -7,12 +7,9 @@ module.exports.postReview = async(req,res)=>{
     let {id} = req.params;
      let neuChat = await Primary.findById(id);
      
-     const {message} = req.body.small
+     const {message} = req.body
      let newChat = new Secondary(message);
      newChat.author = req.user;
-     console.log(req.params)
-     console.log(req.body)
-     console.log(neuChat)
      
      neuChat.secondary.push(newChat);
  

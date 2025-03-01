@@ -2,23 +2,15 @@
 <br>
 <%- include("../classic/flash.ejs") %>
 
-<div class="dark">
+<div class="best dark">
     <% if(currUser){ %>
     <nav  class="fixed-bottom navbar best navbar-expand-lg bg-body-tertiary">
         <div class="col-12 ">
             <form action="/chats/<%= chats.id%>/reviews" method="post">
 
-                <div class="row g-3">
-                    
-                    <div   class="mt-1 col-md-10">
-                        
-                        <textarea required style="margin-left: 1rem; margin-right: 1rem; font-size: larger; font-weight: 600;"  type="text" placeholder="  Enter your Opinion" name="small[message]" class="form-control" id="inputPassword4"></Textarea>
-                    </div>
-                </div>
-
-
-                <div >
-                    <button style="width: 100px;" class="offset-5 btn mt-1 btn-outline-success" type="submit">Send <i style="margin-left:1rem ;" class="fa-solid fa-paper-plane"></i></button>
+                <div style="display: flex;" class="col-10 offset-1">
+                    <textarea required name="message" placeholder="  Enter Your Opinion"  type="text" class="form-control"></textarea>
+                    <button type="submit" style="margin-left: 0.5rem; border-radius: 50%; border: none; width: 4rem; height: 4rem;" class="form-control"><i style="font-size: 2rem; color: #20a88c; border: none; border-radius: 50%;" class="fa-solid fa-paper-plane"></i></button>
                 </div>
             </form>
         </div>
@@ -26,12 +18,12 @@
     <% } %>
     
     <div style="height: 15rema;" class="card col-10 offset-1  text-bg-dark">
-        <img style="height: 15rem;" src="https://plus.unsplash.com/premium_photo-1682464651356-3c6780eff00c?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cm9ib3QlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww" class="card-img" alt="...">
+        <img style="height: 20rem; opacity: 0.5;" src="https://plus.unsplash.com/premium_photo-1682464651356-3c6780eff00c?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cm9ib3QlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww" class="card-img" alt="...">
         <div class="card-img-overlay">
-            <div class="mt-2 mb-1" style="display: flex; text-transform: capitalize; color: white; justify-content: center; text-decoration: underline;" ><h3><%- chats.title %></h3></div>
-            <div class="mt-2 mb-1" style="display: flex; color: white; justify-content: center;" ><h4><%- chats.aims %> , <%- chats.category %></h4></div>
-            <div class="mt-2 mb-1" style="display: flex; color: white; justify-content: center; text-transform: capitalize;" ><h5>Own By -- <%= chats.user.name%></h5></div>
-            <div class="mt-2 mb-1" style="display: flex; color: white; justify-content: center; font-size: x-small" ><p> -- <%- chats.date %></p></div>
+            <div class=" mb-1" style="display: flex; text-transform: capitalize; color: white; justify-content: center; text-decoration: underline;" ><h2><i style="margin-right: 0.5rem; font-size: 1.5rem;" class="fa-solid fa-star"></i><%- chats.title %></h2></div>
+            <div class="mt-2 mb-1" style="display: flex; color: white; justify-content: center;" ><h4><li><%- chats.aims %> , <%- chats.category %></li></h4></div>
+            <div class="mt-2 mb-1" style="display: flex; color: white; justify-content: center; text-transform: capitalize;" ><h3>Own By -- <%= chats.user.name%></h3></div>
+            <div class="mt-2 mb-1" style="display: flex; color: white; justify-content: center; font-size: x-small" ><p style="font-size: 0.75rem;"> -- <%- chats.date %></p></div>
             
             <% if (currUser && currUser._id.equals(chats.user.id)){ %>
             
@@ -51,8 +43,8 @@
       
         
     </div>
-     <br><br>
-      <br>
+     
+     
     <div id="best" class="new" style="border: 2px solid black; margin:1rem; border-radius: 20px; background-color:#c2e2e6 ;" >
         <h2 style="padding: 5px 0 0 0;" class="offset-4"><i style="margin-right: 1rem;" class="fa-brands fa-rocketchat"></i>All Chats</h2>
         
