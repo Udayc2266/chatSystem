@@ -10,8 +10,7 @@ const path = require("path");
 app.set("view engine", "ejs");
 app.set("views",path.join(__dirname,"views"));
 const mongoose = require('mongoose');
-const Chat = require("./views/backend/schema.js");
-const Smallchat = require("./views/backend/smallschema.js");
+
 const bodyParser = require('body-parser');
 const multer  = require('multer');
 const upload = multer({ dest: 'uploads/' });
