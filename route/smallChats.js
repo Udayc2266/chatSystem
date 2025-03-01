@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const {chatSchema} = require("../extra/joi.js"); 
-const Chat = require("../views/backend/schema.js");
-const Smallchat = require("../views/backend/smallschema.js");
+
 const wrapAsync = require("../extra/protection.js");
 const ExpressError = require("../extra/ExpressError");
 const mongoose = require('mongoose');
