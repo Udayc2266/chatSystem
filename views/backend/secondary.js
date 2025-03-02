@@ -21,6 +21,6 @@ const Secondary = new Schema({
 
 })
 
-const Secondary = mongoose.model('Secondary', Secondary);
+module.exports = mongoose.model('Secondary', Secondary);
 
-module.exports = Secondary
+
