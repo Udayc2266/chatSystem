@@ -1,4 +1,4 @@
-const { required } = require("joi");
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -15,7 +15,7 @@ const Secondary = new Schema({
 
     date : {
         type : Date,
-        default : Date.now()
+        default : Date.now
     }
 
 
