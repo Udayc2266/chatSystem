@@ -23,10 +23,10 @@ const listPrime = Schema({
         required : true
     },
 
-    secondary :[{
+    secondary :{
         type : Schema.Types.ObjectId,
         ref : "Secondary"
-    }],
+    },
 
     user : {
         type : Schema.Types.ObjectId,
