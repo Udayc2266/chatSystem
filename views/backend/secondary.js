@@ -19,7 +19,7 @@ const User = require("./user");
         }
     });
 
-    console.log(typeof SecondarySchema); // Should now print 'function'
+
     module.exports = mongoose.model('Secondary', SecondarySchema);
 })();
 
