@@ -23,6 +23,8 @@ const Secondary = new Schema({
 
 })
 
+console.log(typeof Secondary)
+
 module.exports = mongoose.model('Secondary', Secondary);
 
 
