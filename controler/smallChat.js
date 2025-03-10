@@ -10,7 +10,7 @@ module.exports.postReview = async(req,res)=>{
      const {message} = req.body
      let newChat = new Secondary({ message: message });
 
-     newChat.author = req.user;
+     newChat.user = req.user;
      
      neuChat.secondary.push(newChat);
  
