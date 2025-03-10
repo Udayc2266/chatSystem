@@ -59,7 +59,7 @@
                     <footer style="font-size: small;" class="blockquote-footer"><%= review.date %><cite title="Source Title"></cite></footer>
                   </blockquote>
                 </div>
-            <% if (currUser && currUser._id.equals(chats.user.id)){ %>
+            <% if (currUser && currUser._id.equals(review.user.id)){ %>
                 <div>
                     <form method="POST" action="/chats/<%=chats._id%>/reviews/<%=review._id%>?_method=DELETE" >
                         <button style="width: 100px;" class="mb-3 offset-8 btn btn-outline-danger" type="submit">Delete   <i style="margin-left: 0.5rem;" class="fa-regular fa-trash-can"></i></button>
