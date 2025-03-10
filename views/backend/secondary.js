@@ -1,30 +1,26 @@
-
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const User = require("./user")
+const User = require("./user");
 
-const Secondary = new Schema({
-    user : {
-        type : Schema.Types.ObjectId,
-        ref : "User",
-        required: true 
-    },
+(function() {
+    const SecondarySchema = new Schema({
+        user: {
+            type: Schema.Types.ObjectId,
+            ref: "User",
+            required: true
+        },
+        message: {
+            type: String,
+            required: true
+        },
+        date: {
+            type: Date,
+            default: Date.now
+        }
+    });
 
-    message : {
-        type : String,
-        required : true
-    },
-
-    date : {
-        type : Date,
-        default : Date.now
-    }
-
-
-})
-
-console.log(typeof Secondary)
-
-module.exports = mongoose.model('Secondary', Secondary);
+    console.log(typeof SecondarySchema); // Should now print 'function'
+    module.exports = mongoose.model('Secondary', SecondarySchema);
+})();
 
 
