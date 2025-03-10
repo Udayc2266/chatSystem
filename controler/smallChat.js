@@ -17,7 +17,7 @@ module.exports.postReview = async(req,res)=>{
      await newChat.save();
      await neuChat.save();
      
-     res.redirect(`/chats`)
+     res.redirect(`/chats/${id}`)
  }
 
  module.exports.deleteReview = async(req,res)=>{
