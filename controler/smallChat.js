@@ -1,5 +1,5 @@
-const Primary = require("../views/backend/primary.js");
-const Secondary = require("../views/backend/secondary.js");
+const Primary = require("../views/backend/primary");
+const Secondary = require("../views/backend/secondary");
 
 
 
