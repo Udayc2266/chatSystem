@@ -16,16 +16,18 @@ router
     .get( wrapAsync(chatControler.allCard))
     .post( isLogin,  upload.single("avatar"), wrapAsync(chatControler.postNewCard));
 
-router
-    .route("/:id")
-    .get( isLogin, wrapAsync(chatControler.card))
-    .delete( isLogin, wrapAsync(chatControler.deleteCard))
-    .put( isLogin, upload.single("avatar") ,wrapAsync(chatControler.postEditCard));
- 
-
+// Static route FIRST
 router.get("/new",
     isLogin,
-    wrapAsync(chatControler.newCard));
+    wrapAsync(chatControler.newCard)
+);
+
+// Dynamic routes AFTER
+router
+    .route("/:id")
+    .get(isLogin, wrapAsync(chatControler.card))
+    .delete(isLogin, wrapAsync(chatControler.deleteCard))
+    .put(isLogin, upload.single("avatar"), wrapAsync(chatControler.postEditCard));
 
 router.get("/:id/edit",
     isLogin,
