@@ -18,16 +18,12 @@
                 <a class="nav-link" style="font-size: x-large; font-weight: 500;"  href="/chats/new">New Cards</a>
               </li>
             </ul>
-            <% if(!currUser){ %>
-             
-            
+          <% if(typeof currUser === 'undefined' || !currUser){ %>
                 <li  class="nav-item ms-3">
                   <a class="nav-link active" style="font-size: x-large; color: black; font-weight: 600;" aria-current="page" href="/login">Login</a>
                 </li>
               
-              <li  class="nav-item ms-3">
-                <a class="nav-link active" style="font-size: x-large; color: black; font-weight: 600;" aria-current="page" href="/signup">Sign Up</a>
-              </li>
+            
             <% } %>
             <% if(currUser){ %>
               <li  class="nav-item ms-3">
